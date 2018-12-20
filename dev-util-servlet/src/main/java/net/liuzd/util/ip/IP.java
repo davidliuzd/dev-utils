@@ -11,7 +11,7 @@ public class IP {
     private IP() {
 
     }
-    
+
     public static String get(HttpServletRequest request) {
         if (request == null) {
             return "unknown";
