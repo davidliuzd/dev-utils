@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.liuzd.dev</groupId>
-	<artifactId>dev-tools</artifactId>
+	<artifactId>dev-util</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>dev-tools-base</module>		
-		<module>dev-tools-servlet</module>
+		<module>dev-util-base</module>		
+		<module>dev-util-servlet</module>
 	</modules>
 
 	<!-- 全局版本管理 管理依赖第三方jar包的版本号 -->
