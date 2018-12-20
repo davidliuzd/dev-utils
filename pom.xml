@@ -3,26 +3,90 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.liuzd.dev</groupId>
+	<artifactId>dev-tools</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<artifactId>dev-util</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>dev-tools-base</module>		
+		<module>dev-tools-servlet</module>
+	</modules>
+
+	<!-- 全局版本管理 管理依赖第三方jar包的版本号 -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jdk_version>1.8</jdk_version>
+		<!-- 各版本 -->
+		<version.junit>4.9</version.junit>
+		<version.javax.servlet>3.0.1</version.javax.servlet>
+		<version.jstl>1.2</version.jstl>
+		<!-- log relations versions -->
+		<version.log4j>1.2.17</version.log4j>
+		<version.slf4j>1.7.7</version.slf4j>
+		<version.slf4j.log4j>1.7.7</version.slf4j.log4j>
+	</properties>
+
+	<dependencyManagement>
+
+		<dependencies>
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${version.junit}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${version.javax.servlet}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- Logging -->
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${version.log4j}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${version.slf4j}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${version.slf4j.log4j}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-api</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>log4j</groupId>
+						<artifactId>log4j</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<!-- servlet -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${version.javax.servlet}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>${version.jstl}</version>
+				<scope>provided</scope>
+			</dependency>
 
 
-	<dependencies>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.9</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
-			<scope>provided</scope>
-		</dependency>
-
-	</dependencies>
+		</dependencies>
+	</dependencyManagement>
 
 </project>
